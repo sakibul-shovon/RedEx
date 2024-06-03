@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "810967697425",
+    "project_id": "redex-29b56",
+    "storage_bucket": "redex-29b56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810967697425:android:afe5081b483c6e23ee49b0",
+        "android_client_info": {
+          "package_name": "com.example.redex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSUQds4Ddouymf2HGiZ7v_j3oBMdN0Hk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
