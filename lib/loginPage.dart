@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:redex/home_page.dart';
 import 'signup_page.dart'; 
 
 class LoginPage extends StatelessWidget {
@@ -68,6 +69,10 @@ class LoginPage extends StatelessWidget {
         const SizedBox(height: 15),
         ElevatedButton(
           onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Home_Page()),
+            );
           },
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
