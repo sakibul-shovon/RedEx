@@ -24,7 +24,7 @@ class _pracitceState extends State<Home_Page> {
               color: const Color.fromARGB(255, 163, 4, 57),
               child: Center(
                 child: Text(
-                  "RedX",
+                  "RedEx",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
