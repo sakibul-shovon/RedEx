@@ -4,7 +4,7 @@ import 'package:redex/auth/login_or_register.dart';
 import 'package:redex/themes/themeProvider.dart';
 
 void main() {
-  runApp( 
+  runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
       child: MyApp(),
@@ -17,10 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const LoginOrRegister(),
-      theme: Provider.of<ThemeProvider>(context).themeData,
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: const LoginOrRegister(),
+          theme: themeProvider.themeData,
+        );
+      },
     );
   }
 }

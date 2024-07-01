@@ -6,5 +6,6 @@ ThemeData darkMode = ThemeData(
     primary: Color.fromARGB(255, 122, 122, 20),
     secondary: Color.fromARGB(255, 47, 47, 47),
     tertiary: Colors.grey.shade100,
+    onBackground: Colors.white,  // Text color for dark mode
   ),
 );
