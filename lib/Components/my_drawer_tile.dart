@@ -1,16 +1,11 @@
+
 import 'package:flutter/material.dart';
 
 class MyDrawerTile extends StatelessWidget {
   final String text;
   final IconData? icon;
   final void Function()? onTap;
-
-  const MyDrawerTile({
-    super.key,
-    required this.text,
-    this.icon,
-    this.onTap,
-  });
+  const MyDrawerTile({super.key, required this.text, this.icon, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +14,11 @@ class MyDrawerTile extends StatelessWidget {
       child: ListTile(
         title: Text(
           text,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onBackground,  // Updated to use onBackground color
-          ),
+          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
         ),
         leading: Icon(
           icon,
-          color: Theme.of(context).colorScheme.onBackground,  // Updated to use onBackground color
+          color: Theme.of(context).colorScheme.inversePrimary,
         ),
         onTap: onTap,
       ),

@@ -90,5 +90,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'redex-29b56.appspot.com',
     measurementId: 'G-024C5R3WT7',
   );
-
 }

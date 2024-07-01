@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:redex/Components/my_drawer_tile.dart';
 import 'package:redex/Pages/settings_page.dart';
@@ -8,7 +9,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).colorScheme.background,  // Background color based on theme
+      backgroundColor: Theme.of(context).colorScheme.background,
       child: Column(
         children: [
           Padding(
@@ -16,13 +17,13 @@ class MyDrawer extends StatelessWidget {
             child: Icon(
               Icons.lock_open_rounded,
               size: 80,
-              color: Theme.of(context).colorScheme.primary,  // Primary color for the icon
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Divider(
-              color: Theme.of(context).colorScheme.secondary,  // Divider color based on theme
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           MyDrawerTile(
@@ -46,7 +47,7 @@ class MyDrawer extends StatelessWidget {
           const Spacer(),
           MyDrawerTile(
             text: 'L O G O U T',
-            icon: Icons.exit_to_app,
+            icon: Icons.exit_to_app, 
             onTap: () {
               // Add your logout functionality here
             },
