@@ -1,7 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:redex/Components/my_drawer_tile.dart';
+import 'package:redex/Pages/LoginPage.dart';
+import 'package:redex/Pages/print_order_page.dart';
 import 'package:redex/Pages/settings_page.dart';
+
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -44,12 +47,29 @@ class MyDrawer extends StatelessWidget {
               );
             },
           ),
+          MyDrawerTile(
+            text: 'U P L O A D P D F',
+            icon: Icons.upload_file,
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PrintOrderPage(),
+                ),
+              );
+            },
+          ),
           const Spacer(),
           MyDrawerTile(
             text: 'L O G O U T',
             icon: Icons.exit_to_app, 
             onTap: () {
-              // Add your logout functionality here
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage(onTap: () {})), 
+                (route) => false,
+              );
             },
           ),
         ],

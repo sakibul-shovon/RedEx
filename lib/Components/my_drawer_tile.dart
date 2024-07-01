@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MyDrawerTile extends StatelessWidget {
@@ -14,11 +13,11 @@ class MyDrawerTile extends StatelessWidget {
       child: ListTile(
         title: Text(
           text,
-          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+          style: TextStyle(color: Colors.black),  // Text color set to black
         ),
         leading: Icon(
           icon,
-          color: Theme.of(context).colorScheme.inversePrimary,
+          color: Colors.black,  // Icon color set to black
         ),
         onTap: onTap,
       ),

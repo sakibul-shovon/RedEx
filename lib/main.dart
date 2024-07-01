@@ -1,17 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:redex/auth/login_or_register.dart';
-import 'package:redex/firebase_options.dart';
 import 'package:redex/themes/themeProvider.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    name: "redex-29b56",
-    options: DefaultFirebaseOptions.currentPlatform
-  );
-  runApp(
+void main() {
+  runApp( 
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
       child: MyApp(),
