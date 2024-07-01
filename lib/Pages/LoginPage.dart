@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:redex/Components/MyButton.dart';
 import 'package:redex/Components/MyTextField.dart';
 import 'package:redex/Pages/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
-  LoginPage({super.key, required this.onTap});
+  const LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -16,13 +17,35 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void login() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomePage(),
-      ),
+  void login() async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+      if (userCredential.user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomePage(),
+          ),
+        );
+      }
+    } on FirebaseAuthException catch (e) {
+      showError(e.message ?? 'An error occurred');
+    }
+  }
+
+  void showError(String errorMessage) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Text(errorMessage),
+        );
+      },
     );
   }
 
@@ -34,16 +57,12 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo
             Icon(
               Icons.lock_open_rounded,
               size: 100,
               color: Theme.of(context).colorScheme.primary,
             ),
-
             SizedBox(height: 25),
-
-            // App slogan
             Text(
               'RedEx',
               style: TextStyle(
@@ -51,36 +70,24 @@ class _LoginPageState extends State<LoginPage> {
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
-
             SizedBox(height: 25),
-
-            // Email text field
             MyTextField(
               controller: emailController,
               hintText: 'Email',
               obscureText: false,
             ),
-
             SizedBox(height: 25),
-
-            // Password text field
             MyTextField(
               controller: passwordController,
               hintText: 'Password',
               obscureText: true,
             ),
-
             SizedBox(height: 25),
-
-            // Sign in button
             MyButton(
               text: 'Sign In',
               onTap: login,
             ),
-
             SizedBox(height: 25),
-
-            // Register section
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
