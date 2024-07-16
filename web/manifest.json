@@ -1,6 +1,6 @@
 {
-    "name": "redex",
-    "short_name": "redex",
+    "name": "chting_app",
+    "short_name": "chting_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

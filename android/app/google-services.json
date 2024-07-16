@@ -1,26 +1,168 @@
 {
   "project_info": {
-    "project_number": "552898568001",
-    "project_id": "redex-chat-app-5dbe8",
-    "storage_bucket": "redex-chat-app-5dbe8.appspot.com"
+    "project_number": "1054537037589",
+    "firebase_url": "https://redex-final-default-rtdb.firebaseio.com",
+    "project_id": "redex-final",
+    "storage_bucket": "redex-final.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:552898568001:android:3778efc7efd8b0de998bc0",
+        "mobilesdk_app_id": "1:1054537037589:android:ef2989364e8b0f0c5ddb1c",
         "android_client_info": {
-          "package_name": "com.example.redex_chat_app"
+          "package_name": "com.chat.messenger"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBiXxqfVHidhyNeFxmzpt1jC6KrDu8CQec"
+          "current_key": "AIzaSyAwNfTrnjYk-UG6WaeFzlTr13gdi31CFOs"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1054537037589-16mhtf748im73o0hajqevuj0ur9e2tt3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tauseef.whatsappclone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054537037589:android:4b52f86f9207594e5ddb1c",
+        "android_client_info": {
+          "package_name": "com.example.chting_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054537037589-t4c2660e4d41e1a23os1n88qitgopb3f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chting_app",
+            "certificate_hash": "1ae265d0c58f6fad405cae7e31f3d819de766783"
+          }
+        },
+        {
+          "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwNfTrnjYk-UG6WaeFzlTr13gdi31CFOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1054537037589-16mhtf748im73o0hajqevuj0ur9e2tt3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tauseef.whatsappclone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054537037589:android:0390c44dc1e51b495ddb1c",
+        "android_client_info": {
+          "package_name": "com.example.whatsapp_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwNfTrnjYk-UG6WaeFzlTr13gdi31CFOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1054537037589-16mhtf748im73o0hajqevuj0ur9e2tt3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tauseef.whatsappclone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054537037589:android:693c4238cb11b4e95ddb1c",
+        "android_client_info": {
+          "package_name": "com.tauseef.whatsappclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054537037589-rmeaj20tbfir3bpb8qersgfka7qs9b35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tauseef.whatsappclone",
+            "certificate_hash": "1ae265d0c58f6fad405cae7e31f3d819de766783"
+          }
+        },
+        {
+          "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwNfTrnjYk-UG6WaeFzlTr13gdi31CFOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054537037589-17tlqa37ctu02vcm80k1vbh10gpibe5p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1054537037589-16mhtf748im73o0hajqevuj0ur9e2tt3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tauseef.whatsappclone"
+              }
+            }
+          ]
         }
       }
     }
