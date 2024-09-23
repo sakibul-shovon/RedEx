@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../api/apis.dart';
-//import '../services/apis.dart'; // Import your APIs class here
 
 class RedexBalancePage extends StatefulWidget {
   @override
@@ -32,72 +31,114 @@ class _RedexBalancePageState extends State<RedexBalancePage> {
   }
 
   // Method to update Redex Coin in Firebase using APIs class
-  Future<void> _updateRedexCoin(double newBalance) async {
-    await APIs.updateRedexBalance(newBalance);
+  Future<void> _updateRedexCoin(double amount) async {
+    await APIs.updateRedexBalance(amount);
   }
 
   void _showPaymentOptions() {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true, // Allow the height to be controlled
       builder: (BuildContext context) {
         return Container(
-          height: 200,
+          height: 400, // Set a fixed height for the bottom sheet
           padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              const Text('Select Payment Method', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 20),
-              DropdownButton<String>(
-                value: selectedPaymentMethod,
-                hint: const Text('Choose a payment method'),
-                items: [
-                  DropdownMenuItem(
-                    value: 'Bkash',
-                    child: Row(
-                      children: const [
-                        ImageIcon(
-                          AssetImage("images/bkash.png"),
-                          color: Color.fromRGBO(209, 32, 83, 1),
-                          size: 50,
-                        ),
-                        SizedBox(width: 10),
-                        Text('Buy with Bkash'),
-                      ],
-                    ),
+          child: Center( // Center the content vertically
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    'Select Payment Method',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  // Additional payment methods...
+                  const SizedBox(height: 20),
+                  DropdownButton<String>(
+                    value: selectedPaymentMethod,
+                    hint: const Text('Choose a payment method'),
+                    items: [
+                      DropdownMenuItem(
+                        value: 'Bkash',
+                        child: Row(
+                          children: const [
+                            ImageIcon(
+                              AssetImage("images/bkash.png"),
+                              color: Color.fromRGBO(209, 32, 83, 1),
+                              size: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Text('Buy with Bkash'),
+                          ],
+                        ),
+                      ),
+                      // Add more payment methods as needed
+                    ],
+                    onChanged: (String? value) {
+                      setState(() {
+                        selectedPaymentMethod = value;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      _confirmPurchase();
+                    },
+                    child: const Text('Confirm Purchase'),
+                  ),
                 ],
-                onChanged: (String? value) {
-                  setState(() {
-                    selectedPaymentMethod = value;
-                  });
-                  Navigator.pop(context);
-                  _showSelectedPayment(value);
-                },
               ),
-            ],
+            ),
           ),
         );
       },
     );
   }
 
-  void _showSelectedPayment(String? method) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('You selected: $method')),
-    );
+
+  void _confirmPurchase() {
+    if (selectedPaymentMethod != null) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Confirm Purchase'),
+            content: Text('Do you want to buy 100 Redex Coins with $selectedPaymentMethod?'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  _buyRedexCoin(); // Call to buy Redex Coin
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: const Text('Confirm'),
+              ),
+            ],
+          );
+        },
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please select a payment method.')),
+      );
+    }
   }
 
   // Method to buy Redex Coin
   void _buyRedexCoin() async {
-    // Example increment; replace with actual logic
-    double newBalance = redexCoin + 10.0;
-    await _updateRedexCoin(newBalance);
+    double amountToAdd = 100.0; // The amount to add to the balance
+    await _updateRedexCoin(amountToAdd); // Update the balance in Firebase
     setState(() {
-      redexCoin = newBalance;
+      redexCoin += amountToAdd; // Update the local state with the new balance
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Successfully purchased Redex Coins!')),
+      const SnackBar(content: Text('Successfully purchased 100 Redex Coins!')),
     );
   }
 
@@ -105,7 +146,13 @@ class _RedexBalancePageState extends State<RedexBalancePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Redex Balance'),
+        title: const Text(
+          'Redex Balance',
+          style: TextStyle(
+            fontSize: 24,             // Increase font size
+            fontWeight: FontWeight.bold, // Make text bold
+          ),
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -122,7 +169,7 @@ class _RedexBalancePageState extends State<RedexBalancePage> {
                 const SizedBox(height: 20.0),
                 Text(
                   redexCoin.toStringAsFixed(2),
-                  style: const TextStyle(fontSize: 48.0, color: Colors.amber, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 48.0, color: Colors.red, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -131,17 +178,19 @@ class _RedexBalancePageState extends State<RedexBalancePage> {
             padding: const EdgeInsets.only(bottom: 350.0, left: 35),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.black,
                 padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                 textStyle: const TextStyle(fontSize: 18),
               ),
               onPressed: () {
-                _buyRedexCoin();
                 _showPaymentOptions();
               },
               child: const Text(
                 'Buy Redex Coin',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                  color: Colors.white,         // Set text color to white
+                  fontWeight: FontWeight.bold, // Make text bold
+                ),
               ),
             ),
           ),

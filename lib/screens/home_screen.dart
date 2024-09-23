@@ -91,7 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (_) => NewsFeedPage())); // Navigate to the home screen
+                            builder: (_) => NewsFeedPage())
+                          ); // Navigate to the home screen
             },
 ),
 

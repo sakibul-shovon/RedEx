@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,9 +28,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -41,52 +50,22 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAwNfTrnjYk-UG6WaeFzlTr13gdi31CFOs',
-    appId: '1:1054537037589:android:4b52f86f9207594e5ddb1c',
-    messagingSenderId: '1054537037589',
-    projectId: 'redex-final',
-    databaseURL: 'https://redex-final-default-rtdb.firebaseio.com',
-    storageBucket: 'redex-final.appspot.com',
+    apiKey: 'AIzaSyCLU1HBYMdQcDR-WsIC7w4dWD6C-_0DWAU',
+    appId: '1:572549755107:android:ab389ecdf2566dc2b9d5d6',
+    messagingSenderId: '572549755107',
+    projectId: 'chatingapp-42fb4',
+    storageBucket: 'chatingapp-42fb4.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCAicDo-KvxIounW7Bf3Nh2OcEGk29nhog',
-    appId: '1:1054537037589:ios:a3d2f8beee5db47a5ddb1c',
-    messagingSenderId: '1054537037589',
-    projectId: 'redex-final',
-    databaseURL: 'https://redex-final-default-rtdb.firebaseio.com',
-    storageBucket: 'redex-final.appspot.com',
+    apiKey: 'AIzaSyDvnv5mgUOiPRhp1oLJ3dlvsRNyKITFC04',
+    appId: '1:572549755107:ios:f9c34ea015110458b9d5d6',
+    messagingSenderId: '572549755107',
+    projectId: 'chatingapp-42fb4',
+    storageBucket: 'chatingapp-42fb4.appspot.com',
+    androidClientId: '572549755107-piisjcegbfi3v45vm3iqireca48612rt.apps.googleusercontent.com',
+    iosClientId: '572549755107-82gsuj4nqec4rc59q6espqs3ldtcj644.apps.googleusercontent.com',
     iosBundleId: 'com.example.chtingApp',
-  );
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDxcLOm2jFIVLqw257_U4h0eUWWOIMsJNY',
-    appId: '1:1054537037589:web:85bb448919ebcec05ddb1c',
-    messagingSenderId: '1054537037589',
-    projectId: 'redex-final',
-    authDomain: 'redex-final.firebaseapp.com',
-    databaseURL: 'https://redex-final-default-rtdb.firebaseio.com',
-    storageBucket: 'redex-final.appspot.com',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCAicDo-KvxIounW7Bf3Nh2OcEGk29nhog',
-    appId: '1:1054537037589:ios:a3d2f8beee5db47a5ddb1c',
-    messagingSenderId: '1054537037589',
-    projectId: 'redex-final',
-    databaseURL: 'https://redex-final-default-rtdb.firebaseio.com',
-    storageBucket: 'redex-final.appspot.com',
-    iosBundleId: 'com.example.chtingApp',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDxcLOm2jFIVLqw257_U4h0eUWWOIMsJNY',
-    appId: '1:1054537037589:web:bb50a81fc78f880f5ddb1c',
-    messagingSenderId: '1054537037589',
-    projectId: 'redex-final',
-    authDomain: 'redex-final.firebaseapp.com',
-    databaseURL: 'https://redex-final-default-rtdb.firebaseio.com',
-    storageBucket: 'redex-final.appspot.com',
   );
 
 }

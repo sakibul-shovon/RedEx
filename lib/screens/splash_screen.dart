@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import '../../main.dart';
 import '../api/apis.dart';
 import 'auth/login_screen.dart';
+import 'auth/login_screen1.dart';
 import 'home_screen.dart';
 
 //splash screen
@@ -37,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
           MaterialPageRoute(
             builder: (_) => APIs.auth.currentUser != null
                 ? const NewsFeedPage()
-                : const LoginScreen(),
+                :  LoginScreen1(),
           ));
     });
   }

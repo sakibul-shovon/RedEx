@@ -5,12 +5,12 @@ import 'package:chting_app/screens/home_screen.dart';
 import 'package:chting_app/screens/news_feed.dart';
 import 'package:chting_app/screens/splash_screen.dart';
 import 'package:chting_app/screens/upload_file_screen.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart' show Firebase, FirebaseOptions;
 import 'package:flutter/services.dart';
 import 'package:flutter_notification_channel/flutter_notification_channel.dart';
 import 'package:flutter_notification_channel/notification_importance.dart';
-import 'package:get/get.dart';
 
 import 'firebase_options.dart';
 
@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-        title: 'Redex',
+    return MaterialApp(
+        title: 'RedX',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             appBarTheme: const AppBarTheme(

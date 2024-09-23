@@ -91,7 +91,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
                             width: 15,
                             height: 15,
                             decoration: BoxDecoration(
-                                color: Colors.redAccent.shade400,
+                                color: Colors.blueGrey.shade800,
                                 borderRadius: BorderRadius.circular(10)),
                           )
                         :
