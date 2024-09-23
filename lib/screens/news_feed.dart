@@ -81,6 +81,36 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     }
   }
 
+  Future<void> _confirmDeletePost(String newsItemId) async {
+    final result = await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Confirm Delete'),
+          content: const Text('Are you sure you want to delete this post?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context, false);
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context, true);
+              },
+              child: const Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (result == true) {
+      _deletePost(newsItemId);
+    }
+  }
+
 
 
 
