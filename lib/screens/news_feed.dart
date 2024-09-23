@@ -241,6 +241,20 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     );
   }
 
+  Future<void> _deleteComment(String newsItemId, String commentId) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('news')
+          .doc(newsItemId)
+          .collection('comments')
+          .doc(commentId)
+          .delete();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to delete comment: $e')),
+      );
+    }
+  }
 
 
 
