@@ -52,11 +52,15 @@ dependencies:
   pdf: ^3.6.0
   printing: ^5.8.0
   get: ^4.6.6
-  #zego_uikit_prebuilt_call: ^4.14.2
-  #zego_uikit_signaling_plugin: ^2.8.2
+  google_generative_ai: ^0.2.2
+  googleapis: ^13.2.0
+  googleapis_auth: ^1.6.0
+#zego_uikit_prebuilt_call: ^4.14.2
+#zego_uikit_signaling_plugin: ^2.8.2
 
-#dependency_overrides:
+dependency_overrides:
   #uuid: ^4.4.0
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
