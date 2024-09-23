@@ -279,4 +279,50 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
           ),
         ],
       ),
-
+      drawer: _buildDrawer(context),
+      //endDrawer: _buildEndDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Post Your Moment'),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextField(
+                      controller: _titleController,
+                      decoration: const InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      controller: _descriptionController,
+                      decoration:
+                          const InputDecoration(labelText: 'Description'),
+                    ),
+                    SizedBox(height: 8),
+                    if (_imageFile != null) Image.file(_imageFile!),
+                    ElevatedButton(
+                      onPressed: _uploadImage,
+                      child: const Text('Pick Image'),
+                    ),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Cancel'),
+                  ),
+                  TextButton(
+                    onPressed: _postNewsItem,
+                    child: const Text('Post'),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
