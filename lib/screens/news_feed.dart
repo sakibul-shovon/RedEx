@@ -168,6 +168,21 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     }
   }
 
+  Future<void> _addComment(String newsItemId, String comment) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    try {
+      await _databaseController.addComment(
+        newsItemId: newsItemId,
+        comment: comment,
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to add comment: $e')),
+      );
+    }
+  }
 
 
 
