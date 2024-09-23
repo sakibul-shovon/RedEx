@@ -27,7 +27,15 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
   File? _imageFile;
   final DatabaseController _databaseController = DatabaseController();
 
-
+  Future<void> _uploadImage() async {
+    final pickedFile =
+        await _imagePicker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
+    }
+  }
 
 
 
