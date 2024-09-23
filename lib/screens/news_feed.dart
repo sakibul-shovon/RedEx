@@ -732,3 +732,24 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     );
   }
 
+  Widget _buildDrawerItem({
+    required IconData icon,
+    required String text,
+    required VoidCallback onTap,
+    Color? textColor,
+    Color? iconColor,
+  }) {
+    return ListTile(
+      leading: Icon(icon, color: iconColor ?? Colors.black87),
+      title: Text(
+        text,
+        style: TextStyle(
+          color: textColor ?? Colors.black87,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      onTap: onTap,
+    );
+  }
+}
