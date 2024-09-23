@@ -202,6 +202,44 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     return await _databaseController.getUserInfo(userId);
   }
 
+  Future<void> _showCommentDialog(String newsItemId) async {
+    final TextEditingController _commentController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Add a Comment'),
+          content: TextField(
+            controller: _commentController,
+            decoration: const InputDecoration(labelText: 'Comment'),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () async {
+                final comment = _commentController.text.trim();
+                if (comment.isNotEmpty) {
+                  await _addComment(newsItemId, comment);
+                  Navigator.pop(context);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Comment cannot be empty')),
+                  );
+                }
+              },
+              child: const Text('Add'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
 
 
