@@ -37,6 +37,49 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     }
   }
 
+  Future<void> _postNewsItem() async {
+    final title = _titleController.text.trim();
+    final description = _descriptionController.text.trim();
+
+    if (title.isEmpty || description.isEmpty || _imageFile == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill in all fields')),
+      );
+      return;
+    }
+
+    try {
+      String imageUrl = '';
+      if (_imageFile != null) {
+        imageUrl = await _databaseController.uploadImage(_imageFile!);
+      }
+
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('User not authenticated')),
+        );
+        return;
+      }
+
+      await _databaseController.addNewsItem(
+        title: title,
+        description: description,
+        imageUrl: imageUrl,
+      );
+
+      _titleController.clear();
+      _descriptionController.clear();
+      setState(() {
+        _imageFile = null;
+      });
+      Navigator.pop(context);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to post news item: $e')),
+      );
+    }
+  }
 
 
 
