@@ -184,6 +184,24 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     }
   }
 
+  Future<void> _toggleCommentLike(String newsItemId, String commentId) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    try {
+      await _databaseController.toggleCommentLike(
+        newsItemId: newsItemId,
+        commentId: commentId,
+      );
+    } catch (e) {
+      print("Error toggling comment like: $e");
+    }
+  }
+
+  Future<Map<String, dynamic>?> _getUserInfo(String userId) async {
+    return await _databaseController.getUserInfo(userId);
+  }
+
 
 
 
