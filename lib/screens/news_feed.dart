@@ -111,6 +111,62 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
     }
   }
 
+  Future<void> _deletePost(String newsItemId) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('User not authenticated')),
+        );
+        return;
+      }
+
+      // Fetch the post to check the author
+      final postDoc = await FirebaseFirestore.instance
+          .collection('news')
+          .doc(newsItemId)
+          .get();
+      final postData = postDoc.data();
+      final postAuthorId = postData?['authorId'];
+
+      if (postAuthorId != user.uid) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('You are not authorized to delete this post')),
+        );
+        return;
+      }
+
+      // Proceed to delete the post
+      await FirebaseFirestore.instance
+          .collection('news')
+          .doc(newsItemId)
+          .delete();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Post deleted successfully')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to delete post: $e')),
+      );
+    }
+  }
+
+  Future<void> _toggleLike(String newsItemId) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    final userId = user.uid;
+
+    try {
+      await _databaseController.toggleLike(
+        newsItemId: newsItemId,
+        userId: userId,
+      );
+    } catch (e) {
+      print("Error toggling like: $e");
+    }
+  }
 
 
 
