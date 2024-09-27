@@ -75,7 +75,7 @@
 <p>Include some screenshots of the app for better visualization:</p>
 <ul>
   
-![image](https://github.com/user-attachments/assets/48ed5a01-dcc0-4008-b9b4-bbcbf3a64610)
+<li>![image](https://github.com/user-attachments/assets/48ed5a01-dcc0-4008-b9b4-bbcbf3a64610) </li>
 
   <li>![image](https://github.com/user-attachments/assets/ebce0978-27d0-42e0-9db5-046804fa8ced)
 </li>
