@@ -40,7 +40,7 @@
 
 <ol>
   <li><strong>Clone the repository</strong>:
-    <pre><code>git clone https://github.com/yourusername/your-repo-name.git</code></pre>
+    <pre><code>git clone https://github.com/sakibul-shovon/RedEx.git</code></pre>
   </li>
   <li><strong>Navigate to the project directory</strong>:
     <pre><code>cd your-repo-name</code></pre>
@@ -74,9 +74,17 @@
 <h2 id="screenshots">Screenshots</h2>
 <p>Include some screenshots of the app for better visualization:</p>
 <ul>
-  <li><img src="path/to/screenshot1.png" alt="Login Screen" /></li>
-  <li><img src="path/to/screenshot2.png" alt="PDF Upload" /></li>
-  <li><img src="path/to/screenshot3.png" alt="Chat Feature" /></li>
+  <li>![image](https://github.com/user-attachments/assets/e6729e7c-7753-46bf-a8a2-395b1e29822a)
+</li>
+  <li>![image](https://github.com/user-attachments/assets/ebce0978-27d0-42e0-9db5-046804fa8ced)
+</li>
+  <li>![image](https://github.com/user-attachments/assets/0aaa54ce-dea9-4f87-b74f-ee4a4fea8d8b)
+</li>
+  <li>![image](https://github.com/user-attachments/assets/41b9efef-f686-44a9-a8c0-0e7f5c5b8e3d)
+</li>
+<li>![image](https://github.com/user-attachments/assets/22d43ce1-5498-4ad8-abde-b740eea702c4)
+</li>
+  
 </ul>
 
 <h2 id="contributing">Contributing</h2>
