@@ -74,8 +74,9 @@
 <h2 id="screenshots">Screenshots</h2>
 <p>Include some screenshots of the app for better visualization:</p>
 <ul>
-  <li>![image](https://github.com/user-attachments/assets/e6729e7c-7753-46bf-a8a2-395b1e29822a)
-</li>
+  
+![image](https://github.com/user-attachments/assets/48ed5a01-dcc0-4008-b9b4-bbcbf3a64610)
+
   <li>![image](https://github.com/user-attachments/assets/ebce0978-27d0-42e0-9db5-046804fa8ced)
 </li>
   <li>![image](https://github.com/user-attachments/assets/0aaa54ce-dea9-4f87-b74f-ee4a4fea8d8b)
