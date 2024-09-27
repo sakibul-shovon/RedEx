@@ -1,6 +1,7 @@
 ![94934ea7-1f92-40b0-b9f4-500e2f8c3cac-removebg-preview](https://github.com/user-attachments/assets/1544ee6f-390f-4ee0-a4f7-1d36848d8cc8)
 
 <h1>Project Name : RedEx</h1>
+<h3>Video : https://www.youtube.com/watch?v=DIkpPWAG-Y0</h3>
 
 <p>This project is an <strong>Android app</strong> built using <strong>Flutter</strong> and <strong>Firebase</strong>. The app serves as a platform for users to upload PDF files for printing, while offering additional features like <strong>authentication via Google and Facebook</strong>, <strong>chat functionality</strong>, a <strong>newsfeed</strong>, and the ability to <strong>refill balance</strong> to access services.</p>
 
